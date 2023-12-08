@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 def index(request):
     # fetch data in form of queryset
-    tasks = Task.objects.filter(user_id='2').values()
+    tasks = Task.objects.filter(user_id=request.user.id).values()
 
     # convert that data into a dict
     my_dict = {}
