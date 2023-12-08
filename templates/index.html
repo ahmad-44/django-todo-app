@@ -39,17 +39,25 @@
                 <h2 class="text-center border-bottom border-warning pb-3">Gretings Ahmad</h2>
                 <h4 class="text-center pt-3 ps-3">Todos</h4>
 
+                
                 <ul class="list-group list-group-flush">
-                    <a href="#" class="text-decoration-none"><li class="list-group-item todo-item">Meeting with client</li></a>
-                    <a href="#" class="text-decoration-none"><li class="list-group-item todo-item">Clean the room</li></a>
+                    {% for task in tasks %}
+                    <a href="#" class="text-decoration-none"><li class="list-group-item todo-item">{{task.user_id}}</li></a>
+                    {% endfor %}
                 </ul>
+                
+
                 <ul class="list-group list-group-flush">
                     <a href="#" class="text-decoration-none"><li class="list-group-item todo-item"><del>Meeting with client</del></li></a>
                     <a href="#" class="text-decoration-none"><li class="list-group-item todo-item"><del>Clean the room</del></li></a>
                 </ul>
 
+                {% comment %} {% for task in tasks %}
+                    {{task}}
 
-
+                {% endfor %} {% endcomment %}
+                
+   
                 <script src="{% static "js/bootstrap.min.js" %}"></script>
             </div>
         </div>
