@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Todo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse  justify-content-end" id="navbarSupportedContent">
+                <div class="d-flex">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="btn btn-outline-dark m-2" aria-current="page" href="accounts/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-dark m-2" href="accounts/signup">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-dark m-2" href="accounts/logout">Log Out</a>
+                </li>
+                </div>
+            </ul>            
+          </div>
+        </div>
+    </nav>
+      
+    <div class="container mt-5"> <!-- Main App Goes Inside This Container-->
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-lg-6 align-middle p-3" id="app-box">
+                <h2 class="text-center border-bottom border-warning pb-3">Gretings Ahmad</h2>
+                <h4 class="text-center pt-3 ps-3">Todos</h4>
+
+                <ul class="list-group list-group-flush">
+                    <a href="#" class="text-decoration-none"><li class="list-group-item todo-item">Meeting with client</li></a>
+                    <a href="#" class="text-decoration-none"><li class="list-group-item todo-item">Clean the room</li></a>
+                </ul>
+                <ul class="list-group list-group-flush">
+                    <a href="#" class="text-decoration-none"><li class="list-group-item todo-item"><del>Meeting with client</del></li></a>
+                    <a href="#" class="text-decoration-none"><li class="list-group-item todo-item"><del>Clean the room</del></li></a>
+                </ul>
+
+
+
+                <script src="js/bootstrap.min.js"></script>
+            </div>
+        </div>
+      </div>
+
+      
+    
+</body>
+</html>

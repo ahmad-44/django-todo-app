@@ -1,0 +1,15 @@
+body{
+    font-family: montserrat;
+    color: rgb(35, 35, 35);
+}
+body > nav{
+    background-color: #fdf9e3 !important;
+}
+
+#app-box{
+    background-color: #fdf9e3;
+}
+
+.todo-item{
+    border: 1px solid rgba(255, 246, 192, 0.9) !important;
+}
