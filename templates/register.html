@@ -3,11 +3,11 @@
     <h2 class="text-start border-bottom border-warning pb-3">Please Register Yourself</h2>
     <form action="register" method="post">
         {% csrf_token %}
-        <input type="text" name="first_name" placeholder="First Name" class="form-control"><br>
+        <input type="text" name="first_name" placeholder="First Name" class="form-control" required><br>
         <input type="text" name="last_name" placeholder="Last Name" class="form-control"><br>
-        <input type="text" name="username" placeholder="Username" class="form-control"><br>
-        <input type="email" name="email" placeholder="Email" class="form-control"><br>
-        <input type="password" name="password" placeholder="Password" class="form-control"><br>
+        <input type="text" name="username" placeholder="Username" class="form-control" required><br>
+        <input type="email" name="email" placeholder="Email" class="form-control" required><br>
+        <input type="password" name="password" placeholder="Password" class="form-control" required><br>
         <input type="submit" value="Create My Account" class="btn btn-success">
     </form>    
     {% for message in messages %}

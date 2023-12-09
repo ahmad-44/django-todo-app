@@ -4,8 +4,8 @@
     <h3 class="text-start border-bottom border-warning pb-3">Please Sign in To Access Your Todos</h3>
     <form action="login" method="post" class="pt-2">
         {% csrf_token %}
-        <input type="text" name="username" placeholder="Username" class="form-control"><br>
-        <input type="password" name="password" placeholder="Password" class="form-control"><br>
+        <input type="text" name="username" placeholder="Username" class="form-control" required><br>
+        <input type="password" name="password" placeholder="Password" class="form-control" required><br>
         <input type="submit" value="Login" class="btn btn-success">
     </form>
     

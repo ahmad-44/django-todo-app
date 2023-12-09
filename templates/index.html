@@ -4,7 +4,7 @@
             <h2 class="text-center border-bottom border-warning pb-3">Greetings {{ request.user.first_name  }}</h2>
             <div class="d-flex justify-content-between pb-2">
                 <h4 class="text-center mt-2 mb-0">Todos</h4>
-                <a class="btn btn-warning btn-sm pt-2">Add Task</a>
+                <a href="create_todo" class="btn btn-warning btn-sm pt-2">Add Task</a>
             </div>
             
         <ul class="list-group list-group-flush">
@@ -22,6 +22,6 @@
             {% endfor %}
         </ul>
         {% else %}
-            <h2 class="text-center border-bottom border-warning pb-3">Please Login To Access Your Data</h2>
+            <h2 class="text-center border-bottom border-warning pb-3">Please Login To Access Your ToDos</h2>
         {% endif %}
     {% endblock content %}
