@@ -4,8 +4,8 @@
     <h3 class="text-start border-bottom border-warning pb-3">Enter a New Task</h2>
     <form action="create_todo" method="post" class="pt-2">
         {% csrf_token %}
-        <input type="text" name="title" placeholder="Task" class="form-control" required><br>
-        <input type="text" name="desc" placeholder="Description" class="form-control" required><br>
+        <input type="text" name="title" placeholder="Task Title" class="form-control" required><br>
+        <input type="text" name="desc" placeholder="Description" class="form-control"><br>
         <input type="submit" value="Add New Task" class="btn btn-success">
     </form>    
     {% for message in messages %}

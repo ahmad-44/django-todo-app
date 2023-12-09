@@ -10,14 +10,28 @@
         <ul class="list-group list-group-flush">
             {% for task in tasks %}
                 {% if not task.is_Task_Completed %}
-                    <a href="#" class="text-decoration-none"><li class="list-group-item todo-item">{{task.title}}</li></a>
+                    <a href="view_todo?id={{task.id}}" class="text-decoration-none">
+                        <li class="list-group-item todo-item d-flex justify-content-between">{{task.title}} 
+                            <span class=" ">
+                             <button class="btn btn-sm btn-warning">Edit</button>
+                             <button class="btn btn-sm btn-warning">Complete</button>
+                            </span>
+                        </li>
+                     </a>
                 {% endif %}
             {% endfor %}
         </ul>
         <ul class="list-group list-group-flush">
             {% for task in tasks %}
                 {% if task.is_Task_Completed %}
-                    <a href="#" class="text-decoration-none"><li class="list-group-item todo-item"><del>{{task.title}}</del></li></a>
+                    <a href="view_todo?id={{task.id}}" class="text-decoration-none">
+                        <li class="list-group-item todo-item d-flex justify-content-between"><del>{{task.title}}</del>
+                        <span class=" ">
+                            <button class="btn btn-sm btn-warning">Edit</button>
+                            <button class="btn btn-sm btn-warning">Complete</button>
+                        </span>
+                        </li>
+                    </a>
                 {% endif %}
             {% endfor %}
         </ul>
