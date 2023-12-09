@@ -2,7 +2,11 @@
     {% block content %}
         {% if user.is_authenticated %}
             <h2 class="text-center border-bottom border-warning pb-3">Greetings {{ request.user.first_name  }}</h2>
-            <h4 class="text-center pt-3 ps-3">Todos</h4>
+            <div class="d-flex justify-content-between pb-2">
+                <h4 class="text-center mt-2 mb-0">Todos</h4>
+                <a class="btn btn-warning btn-sm pt-2">Add Task</a>
+            </div>
+            
         <ul class="list-group list-group-flush">
             {% for task in tasks %}
                 {% if not task.is_Task_Completed %}

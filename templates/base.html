@@ -25,10 +25,10 @@
                     </li>
                 {% else %} 
                     <li class="nav-item">
-                        <a class="btn btn-outline-dark m-2" aria-current="page" href="accounts/login">Login</a>
+                        <a class="btn btn-dark m-2" aria-current="page" href="{% url 'login' %}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-dark m-2" href="accounts/register">Sign Up</a>
+                        <a class="btn btn-dark m-2" href="{% url 'register' %}">Sign Up</a>
                     </li>
                 {% endif %}
                 </div>
@@ -39,7 +39,7 @@
       
     <div class="container mt-5"> <!-- Main App Goes Inside This Container-->
         <div class="row d-flex align-items-center justify-content-center">
-            <div class="col-lg-6 align-middle p-3" id="app-box">
+            <div class="col-10 col-md-8 col-lg-6 align-middle p-3" id="app-box">
                 {% block content %}
                 
                 {% endblock content %}
