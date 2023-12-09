@@ -7,8 +7,12 @@
         <input type="text" name="last_name" placeholder="Last Name" class="form-control"><br>
         <input type="text" name="username" placeholder="Username" class="form-control"><br>
         <input type="email" name="email" placeholder="Email" class="form-control"><br>
-        <input type="password" name="password1" placeholder="Password" class="form-control"><br>
+        <input type="password" name="password" placeholder="Password" class="form-control"><br>
         <input type="submit" value="Create My Account" class="btn btn-success">
-    </form>       
-    </form>
+    </form>    
+    {% for message in messages %}
+        <p class="mt-3 p-2 text-danger">{{message}}</p>
+    {% endfor %}    
+    
+  
 {% endblock content %}
