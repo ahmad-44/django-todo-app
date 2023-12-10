@@ -18,3 +18,25 @@ body > nav{
 input[type=text], input[type=email], input[type=password]{
     background-color: #fffef9 !important;
 }
+
+
+.todo-list-link-text{
+    color: #212529 !important;
+}
+
+.edit-icon, .delete-icon, .complete-icon{
+    text-decoration: none !important;
+}
+.edit-icon{
+    color:rgb(102, 102, 243);
+}
+.complete-icon{
+    color:rgb(44, 188, 44);
+}
+.delete-icon{
+    color:rgb(206, 43, 43);
+}
+a.my1{
+    text-decoration: none !important;
+}
+

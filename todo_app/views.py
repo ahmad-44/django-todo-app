@@ -37,3 +37,13 @@ def view_todo(request):
     #send the desired todo task to template
     return render(request, 'view_todo.html', {'task': task[0]})
 
+@login_required(login_url='/')
+def delete_todo(request):
+    # fetch the id which comes in url like url?id=13
+    id = request.GET.get('id', '') 
+    #delete the object/
+    Task.objects.filter(id=id).delete() #
+    #send the desired todo task to template
+    return redirect('/')
+
+
