@@ -54,6 +54,7 @@ def complete_todo(request):
 
 @login_required(login_url='accounts/accounts/login')
 def restart_todo(request):
+    """It will reset the status of task to pending if it was previously marked as completed. It Helps users to avoid creating the task from the scratch again"""
     # fetch the id which comes in url like url?id=13
     id = request.GET.get('id', '')
     Task.objects.filter(id=id).update(is_Task_Completed = False)
@@ -62,21 +63,21 @@ def restart_todo(request):
 @login_required(login_url='accounts/accounts/login')
 def edit_todo(request):
     if request.method == 'POST':
+        #post request handling after someone tries to update the task/todo
         id = request.POST['id']
         title = request.POST['title']
         desc = request.POST['desc']
-        print(f"Title: {title}")
-        if title:
+        if title: #we don't want any task having no title. this filter will prevent tasks with empty titles
             Task.objects.filter(id=id).update(title=title, desc=desc)    
             return redirect('/')       
         else: 
             messages.info(request, 'Task Title Is Required')
             return redirect(f'/edit_todo?id={id}&title={title}&desc={desc}')
     else:
+        # GET request upon loading of edit_todo page
         id = request.GET.get('id', '')
         title = request.GET.get('title', '')
         desc = request.GET.get('desc', '')
         task = {'id':id, 'title':title, 'desc':desc}
-        # Task.objects.filter(id=id).update(is_Task_Completed = False)
         return render(request, 'edit_todo.html', {'task': task})
 

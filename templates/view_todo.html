@@ -8,7 +8,7 @@
     
         <div class="mt-3 d-flex justify-content-end">
             {% if not task.is_Task_Completed %}
-                <a class="btn btn-warning me-2">Edit</a>
+                <a class="btn btn-warning me-2" href="edit_todo?id={{task.id}}&title={{task.title}}&desc={{task.desc}}">Edit</a>
                 <a class="btn btn-warning me-2" href="complete_todo?id={{task.id}}">Complete</a>
                 <a class="btn btn-danger" href="delete_todo?id={{task.id}}">Delete</a>
             {% else %}
