@@ -5,7 +5,7 @@
     <form action="edit_todo" method="post" class="pt-2">
         {% csrf_token %}
         <label for="form_title" class="form-label">Title</label>
-        <input id="form_title" type="text" name="title"  class="form-control" value="{{task.title}}"><br>
+        <input id="form_title" type="text" name="title"  class="form-control" value="{{task.title}}"  maxlength="100"><br>
 
         <label for="form_desc" class="form-label">Details</label>
         <input id="form_desc" type="text" name="desc" placeholder="Description" class="form-control" value="{{task.desc}}"><br>
