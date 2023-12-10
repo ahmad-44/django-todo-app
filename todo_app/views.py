@@ -11,12 +11,11 @@ def index(request):
     # print(tasks)
     return render(request, 'index.html', {'tasks': tasks})
 
-@login_required(login_url='/') 
+@login_required(login_url='accounts/accounts/login') 
 def create_todo(request):
     if request.method == 'POST':
         title = request.POST['title']
         desc = request.POST['desc']
-        # messages.info(request, 'Invalid Username or Password. Please try again. ')
         if title:
             task = Task.objects.create(title = title, desc = desc, user_id = request.user.id)
             task.save()
@@ -28,7 +27,7 @@ def create_todo(request):
     
     return render(request, 'create_todo.html')
 
-@login_required(login_url='/')
+@login_required(login_url='accounts/accounts/login')
 def view_todo(request):
     # fetch the id which comes in url like url?id=13
     id = request.GET.get('id', '') 
@@ -37,7 +36,7 @@ def view_todo(request):
     #send the desired todo task to template
     return render(request, 'view_todo.html', {'task': task[0]})
 
-@login_required(login_url='/')
+@login_required(login_url='accounts/accounts/login')
 def delete_todo(request):
     # fetch the id which comes in url like url?id=13
     id = request.GET.get('id', '') 
@@ -46,4 +45,38 @@ def delete_todo(request):
     #send the desired todo task to template
     return redirect('/')
 
+@login_required(login_url='accounts/accounts/login')
+def complete_todo(request):
+    # fetch the id which comes in url like url?id=13
+    id = request.GET.get('id', '')
+    Task.objects.filter(id=id).update(is_Task_Completed = True)
+    return redirect('/')
+
+@login_required(login_url='accounts/accounts/login')
+def restart_todo(request):
+    # fetch the id which comes in url like url?id=13
+    id = request.GET.get('id', '')
+    Task.objects.filter(id=id).update(is_Task_Completed = False)
+    return redirect('/')
+
+@login_required(login_url='accounts/accounts/login')
+def edit_todo(request):
+    if request.method == 'POST':
+        id = request.POST['id']
+        title = request.POST['title']
+        desc = request.POST['desc']
+        print(f"Title: {title}")
+        if title:
+            Task.objects.filter(id=id).update(title=title, desc=desc)    
+            return redirect('/')       
+        else: 
+            messages.info(request, 'Task Title Is Required')
+            return redirect(f'/edit_todo?id={id}&title={title}&desc={desc}')
+    else:
+        id = request.GET.get('id', '')
+        title = request.GET.get('title', '')
+        desc = request.GET.get('desc', '')
+        task = {'id':id, 'title':title, 'desc':desc}
+        # Task.objects.filter(id=id).update(is_Task_Completed = False)
+        return render(request, 'edit_todo.html', {'task': task})
 

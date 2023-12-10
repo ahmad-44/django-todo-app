@@ -24,7 +24,7 @@ input[type=text], input[type=email], input[type=password]{
     color: #212529 !important;
 }
 
-.edit-icon, .delete-icon, .complete-icon{
+.edit-icon, .delete-icon, .complete-icon, .restart-icon{
     text-decoration: none !important;
 }
 .edit-icon{
@@ -35,6 +35,9 @@ input[type=text], input[type=email], input[type=password]{
 }
 .delete-icon{
     color:rgb(206, 43, 43);
+}
+.restart-icon{
+    color:rgb(102, 102, 243);
 }
 a.my1{
     text-decoration: none !important;

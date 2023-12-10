@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    
+<h3 class="text-start border-bottom border-warning pb-3">Edit Your Task</h2>
+    <form action="edit_todo" method="post" class="pt-2">
+        {% csrf_token %}
+        <label for="form_title" class="form-label">Title</label>
+        <input id="form_title" type="text" name="title"  class="form-control" value="{{task.title}}"><br>
+
+        <label for="form_desc" class="form-label">Details</label>
+        <input id="form_desc" type="text" name="desc" placeholder="Description" class="form-control" value="{{task.desc}}"><br>
+
+        <input type="hidden" name="id" value="{{task.id}}" />
+
+        <input type="submit" value="Update The Task" class="btn btn-success">
+        
+    </form>    
+    {% for message in messages %}
+        <p class="mt-3 p-2 text-danger">{{message}}</p>
+    {% endfor %}    
+
+        {% comment %} <div class="mt-3 d-flex justify-content-end">
+            {% if not task.is_Task_Completed %}
+                <a class="btn btn-warning me-2">Edit</a>
+                <a class="btn btn-warning me-2" href="complete_todo?id={{task.id}}">Complete</a>
+                <a class="btn btn-danger" href="delete_todo?id={{task.id}}">Delete</a>
+            {% else %}
+                <a class="btn btn-warning me-2">Edit</a>
+                <a class="btn btn-warning me-2" href="restart_todo?id={{task.id}}">Start Again</a>
+                <a class="btn btn-danger" href="delete_todo?id={{task.id}}">Delete</a>
+            {% endif %}
+            </li>
+        </div> {% endcomment %}
+      
+        
+{% endblock content %}
